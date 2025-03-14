@@ -6,7 +6,13 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./checkpoints:/app/checkpoints
+      - ./src:/app/src  # For hot reload during development
+      - ./checkpoints:/app/checkpoints  # For model persistence
+      - ./data:/app/data  # For dataset persistence
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
     deploy:
       resources:
         reservations:
