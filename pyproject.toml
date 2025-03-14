@@ -1,21 +1,39 @@
 [project]
 name = "lightning-template-hydra"
 version = "0.1.0"
-description = "Add your description here"
+description = "PyTorch Lightning template for dog breed classification, with future Hydra integration"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "black>=24.8.0",
-    "lightning[extra]>=2.4.0",
-    "loguru>=0.7.2",
-    "rich>=13.8.1",
-    "tensorboard>=2.17.1",
-    "timm>=1.0.9",
-    "torch>=2.4.1",
-    "torchvision>=0.19.1",
+    # Core ML dependencies
+    "torch==2.4.1",
+    "torchvision==0.19.1",
+    "lightning>=2.4.0",
+    "timm>=1.0.9",  # For ResNet18 model
+    
+    # Web interface
     "fastapi>=0.110.0",
-    "python-multipart>=0.0.9",
     "uvicorn>=0.27.1",
-    "jinja2>=3.1.3",
-    "aiofiles>=23.2.1"
+    "python-multipart>=0.0.9",  # For file uploads
+    "jinja2>=3.1.3",  # For HTML templates
+    "aiofiles>=23.2.1",  # For async file operations
+    
+    # Utilities
+    "tensorboard>=2.17.1",  # For training visualization
+    "rich>=13.8.1",  # For beautiful CLI output
+    "loguru>=0.7.2",  # For better logging
+    "black>=24.8.0"  # For code formatting
 ]
+
+[project.urls]
+Homepage = "https://github.com/sagar431/lightning-template-hydra"
+Repository = "https://github.com/sagar431/lightning-template-hydra.git"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+include = '\.pyi?$'
