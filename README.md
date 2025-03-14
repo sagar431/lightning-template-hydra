@@ -38,22 +38,13 @@ data/
 
 Each breed directory contains the corresponding dog images. The dataset will be automatically downloaded when you first run the training script.
 
-## Live Demo
+## Web Interface Demo
 
-### Web Interface
-The application features a modern, user-friendly interface for instant dog breed classification:
+![Web Interface Demo](./assets/web_interface.png)
 
-Example prediction for a Boxer:
-```
-Top 5 Predictions:
-1. Boxer            (100.0%)
-2. Bulldog          (0.0%)
-3. Golden Retriever (0.0%)
-4. Poodle           (0.0%)
-5. Beagle           (0.0%)
-```
+*Example: The model correctly identifies a Boxer with high confidence*
 
-### Model Performance
+## Model Performance
 
 The model achieves exceptional accuracy across supported breeds:
 
