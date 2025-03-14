@@ -41,7 +41,7 @@ Top 5 Predictions:
 
 ## Dataset
 
-This project uses a dog breed classification dataset from Google Drive. The data should be organized in the following structure:
+This project uses a dog breed classification dataset hosted on Google Drive. The data will be automatically downloaded and organized in the following structure:
 
 ```
 data/
@@ -59,7 +59,24 @@ data/
             └── ...
 ```
 
-Each breed directory contains the corresponding dog images. The dataset will be automatically downloaded when you first run the training script.
+### Dataset Setup
+
+1. **Automatic Download**:
+   ```bash
+   # The dataset will be automatically downloaded on first run
+   python src/train.py
+   ```
+
+2. **Manual Download**:
+   - Download the dataset from our Google Drive link
+   - Extract to `data/dog_breed/dataset/`
+   - Ensure the directory structure matches the above layout
+
+### Data Preprocessing
+- Images are automatically resized to model input size
+- Random horizontal flips and rotations for augmentation
+- Normalization using ImageNet statistics
+- Train/validation split handled by directory structure
 
 ## Model Performance
 
