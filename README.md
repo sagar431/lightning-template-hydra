@@ -16,6 +16,29 @@ A template for PyTorch Lightning projects with planned Hydra integration, curren
 - Hyperparameter optimization
 - Multi-run support
 
+## Web Interface
+
+Our modern web interface provides an intuitive way to interact with the model:
+
+![Web Interface Demo](./assets/web_interface.png)
+
+### Key Features
+- **Drag & Drop**: Easy image upload with drag-and-drop functionality
+- **Real-time Processing**: Instant predictions using GPU acceleration
+- **Confidence Scores**: Visual progress bars showing prediction confidence
+- **Top 5 Predictions**: See alternative breed predictions with confidence levels
+- **Mobile Responsive**: Works seamlessly on all devices
+
+Example prediction:
+```
+Top 5 Predictions:
+1. Boxer            (99.99% confidence) ████████████████████ 
+2. Bulldog          (0.01% confidence)  █
+3. German Shepherd  (0.00% confidence)  
+4. Rottweiler       (0.00% confidence)  
+5. Golden Retriever (0.00% confidence)  
+```
+
 ## Dataset
 
 This project uses a dog breed classification dataset from Google Drive. The data should be organized in the following structure:
@@ -38,12 +61,6 @@ data/
 
 Each breed directory contains the corresponding dog images. The dataset will be automatically downloaded when you first run the training script.
 
-## Web Interface Demo
-
-![Web Interface Demo](./assets/web_interface.png)
-
-*Example: The model correctly identifies a Boxer with high confidence*
-
 ## Model Performance
 
 The model achieves exceptional accuracy across supported breeds:
@@ -57,6 +74,21 @@ Recent Inference Results:
 ✓ Rottweiler        (99.50% confidence)
 Average Accuracy: 100%
 ```
+
+## Model Architecture
+
+Based on our proven configuration:
+- **Base Model**: ResNet18 from `timm` with pretrained weights
+- **Training**: 
+  - Loss: CrossEntropyLoss
+  - Optimizer: Adam (lr=1e-3)
+  - Batch Size: 32
+  - Epochs: 10
+- **Data Augmentation**:
+  - Random horizontal flips
+  - Random rotations
+  - Normalization
+- **Validation**: Best checkpoints saved based on accuracy
 
 ## Technical Stack
 
